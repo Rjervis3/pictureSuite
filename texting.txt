@@ -1,0 +1,29 @@
+
+
+Testing for Project 100: Picture suite
+
+Note 1:
+In main procedure user specifies picture to be modified. This program is
+not set up to take pictures using the scribbler robot, but this could 
+be achieved by:
+1) adding rConnect(/dev/rfcomm0); to the first line of the main program 
+2) addind rDisconnect(); to the line just before the return statement of
+main and
+3)replacing the line 
+ Picture * loadPic = rLoadPicture
+    ("/home/jervisre/csc161/projects/project_100/flowers.jpg"); 
+
+in main with the line 
+Picture * loadPic = rTakePicture();
+
+Note 2: 
+in the documentation for the MyroC header file, the function 
+rGetPictureHeight() is said to retrieve the height of a picture and 
+rGetPictureWidth() is said to retrieve the width. Upon testing, however,
+it appear that these values are often switched. Throughout this program
+the variables height and width are declared as follows:
+  width =rGetPictureHeight(pic);
+  height =rGetPictureWidth(pic);
+To correct for this error without generating confusion. If for some reason 
+when testing the program does not compile and returns an out of bounds
+error, these two values can be switched and the problem will be rectified.
